@@ -7,6 +7,7 @@ import Addproduct from './components/Addproduct';
 import Getproducts from './components/Getproducts';
 import Makepayment from './components/Makepayment'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ChatBot from './components/ChatBot';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" element={<Getproducts/>} />
             {/* Route for make payment */}
             <Route path="/makepayment" element={<Makepayment/>} />
+            <Route path="/chat" element={<ChatBot/>} />
           </Routes>
     </div>
     </BrowserRouter>

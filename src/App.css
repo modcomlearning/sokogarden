@@ -42,3 +42,39 @@
     transform: rotate(360deg);
   }
 }
+
+.floating-chat-btn {
+  position: fixed;   /* Fixes the button in place */
+  bottom: 20px;      /* 20px from the bottom of the screen */
+  right: 20px;       /* 20px from the right of the screen */
+  background-color: #007bff;  /* Button color */
+  border-radius: 8px; /* Slightly rounded button edges */
+  padding: 15px 20px; /* Padding for button, more room for text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+  z-index: 1000;      /* Ensures the button is above other elements */
+  text-align: center; /* Centers the content inside */
+  display: flex;      /* Flexbox for alignment of text and icon */
+  justify-content: center; 
+  align-items: center; 
+  cursor: pointer;   /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.floating-chat-btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.chat-icon-text {
+  display: flex;             /* Flexbox for horizontal alignment */
+  align-items: center;       /* Vertically align text and icon */
+  color: white;              /* Set text color to white */
+}
+
+.chat-icon-text i {
+  margin-right: 10px;        /* Space between the icon and text */
+}
+
+.chat-icon-text span {
+  font-size: 14px;           /* Smaller font size for the text */
+  font-weight: bold;         /* Make the text bold */
+}
