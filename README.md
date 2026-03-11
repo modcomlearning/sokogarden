@@ -563,16 +563,18 @@ Please Note in below input we update the Hooks defined above using <b>onChange</
 
 ### Step 4b: Signup
 Now we've created Hooks, a form that updates the hooks on input change(onChange).
+
 The Objective of this step is:
 1. Get/Collect user inputs from updated hooks namely, username, email, password, phone
 2. Specify the Backend API endpoint i.e https://your-username.alwaysdata.net/api/signup
 3. POST the username, email, password, phone to the API 
 4. The API Saves them to MySQL Database
 
-
 ### Below is a Visual Explanation on how Axios Works in React JS + Python Flask API.
 
 ![alt text](image-32.png)
+
+### Explanation
 
 1. User Input (React JS – Front-end): The user enters details such as username, email, password, and phone in a form in the React application.
 
@@ -582,7 +584,7 @@ The Objective of this step is:
 
 4. Database Interaction: Flask executes SQL queries to store the user information in the MySQL database.
 
-5. Response: The backend sends a response back to React, confirming whether the operation was successful.
+5. Response: The backend sends a response back to React, confirming whether the operation was successful/Failed
 
 
 Before we proceed, Lets install axios
