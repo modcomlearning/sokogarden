@@ -663,6 +663,64 @@ inside the arrow function of Signup.js, add below function. This function will c
 
 ```
 
+### Code Explanation
+
+#### Technical Documentation: The submit Function
+
+1. Stopping the Browser from reloading (e.preventDefault)
+
+By default, when you click a "Submit" button, the browser wants to refresh the entire page.
+
+    Why we stop it: In a React app, we want to stay on the same page. This line tells the browser: "Wait, don't refresh! Let my JavaScript handle the data instead."
+
+
+2. User Experience (setLoading)
+
+When a user clicks "Submit," they might think nothing is happening if the internet is slow.
+
+    The Action: We immediately show a message like "Please wait..." * The Benefit: It prevents the user from clicking the button multiple times, which could create duplicate data in your database.
+
+
+3. Packaging the Data (FormData)
+
+Think of FormData as a digital envelope.
+
+    The Process: We take individual pieces of information (username, email, password, phone) and "append" (stick) them into this one envelope.
+
+    The Logic: Instead of sending four separate tiny messages, we send one organized package to the server.
+
+
+4. Sending the Data (Axios.post)
+
+This is the most important part. It is the "Messenger" that travels from the user's computer to the server.
+
+    The Method: We use POST because we are sending new information to be saved.
+
+    The URL: https://your-username.alwaysdata.com/api/signup is the specific "address" on the internet where our Python Flask API is waiting to receive data.
+
+
+5. Cleaning Up (The "Success" Path)
+
+If the server says "Okay, I saved it!", we do three things:
+
+    Remove Loading: Hide the "Please wait" message.
+
+    Show Success: Display a message like "User Registered Successfully!"
+
+    Reset Fields: We clear the text boxes (set them to ""). This makes the form ready for the next entry and confirms to the user that the task is finished.
+
+
+6. Handling Mistakes (Try / Catch)
+
+In coding, things can go wrong (e.g., the server is down, or the user's internet cuts out).
+
+    The Safety Net: The try block is where we hope everything works. If it fails, the catch block "catches" the error.
+
+    The Result: Instead of the app crashing or showing a white screen, it shows a friendly message: "Error: Network disconnected."
+
+
+
+
 Next, go back to your form opening tag and add a <b>onSubmit</b> attribute to call the <b>submit</b> function you created above.
 
 ```jsx
@@ -1097,8 +1155,6 @@ const Signin = () => {
 export default Signin;
 
 ```
-
-
 
 Run your App <br>
 Runs the app in the development mode.\
