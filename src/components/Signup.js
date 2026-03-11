@@ -31,7 +31,7 @@ const Signup = () => {
 
       //post your data to your Backend API
       const response = await axios.post(
-        "https://modcom2.pythonanywhere.com/api/signup",
+        "https://modcom2026.alwaysdata.net/api/signup",
         data
       );
       //After data has been posted, set success hook variable to empty

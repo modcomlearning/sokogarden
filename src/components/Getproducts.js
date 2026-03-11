@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"; // for state management
 import axios from "axios"; // For API Access
-import { Link } from "react-router-dom"; // For link to other component
+import { Link, useNavigate } from "react-router-dom"; // For link to other component
 
 const Getproducts = () => {
 
@@ -9,13 +9,15 @@ const Getproducts = () => {
     const [loading, setLoading] = useState(""); // For loading message
     const [error, setError] = useState(""); // error message hook
     
+
+    const navigate = useNavigate()
     // Specify image location URL
-    const img_url = "https://modcom2.pythonanywhere.com/static/images/"
+    const img_url = "https://modcom2026.alwaysdata.net/static/images/"
     
     const getproducts = async() => {
         setLoading("Please wait, We are retrieving the products .."); // Set loading message when fetching starts
         try {
-            const response = await axios.get("https://modcom2.pythonanywhere.com/api/get_product_details")
+            const response = await axios.get("https://modcom2026.alwaysdata.net/api/get_product_details")
             setProducts(response.data)
             setLoading("")
         }
@@ -52,7 +54,11 @@ const Getproducts = () => {
                             <h5 className="mt-2">{product.product_name}</h5>
                             <p className="text-muted">{product.product_description}</p>
                             <b className="text-warning">{product.product_cost} KES</b> <br />
-                            <button className="btn btn-dark mt-2 w-100">Purchase Now</button>
+                           <button 
+            className="btn btn-dark mt-2 w-100"
+            onClick={() => navigate('/makepayment', { state: { product } })}>
+                        Purchase Now
+            </button>
                         </div>
                     </div>
                 </div>

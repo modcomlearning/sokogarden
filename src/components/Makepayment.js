@@ -22,7 +22,7 @@ const Makepayment = ()=> {
 
       //post your data to your Backend API
       const response = await axios.post(
-        "https://modcom2.pythonanywhere.com/api/mpesa_payment",
+        "https://modcom2026.alwaysdata.net/api/mpesa_payment",
         data
       );
 

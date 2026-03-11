@@ -276,22 +276,14 @@ Get products use: http://127.0.0.1:3000/<br>
 ### Step 4a: Signup
 In this Step we will work on Signup component, This component connect to the backend through the signup API created in https://github.com/modcomlearning/BackendAPI(Step4) <br>  NB: Please check Full component code at the end of this Step.
 <br>
-Open Signup.js Component and import below modules to be used in our code.
-Put them before the arrow function 
 
-```jsx
-import { useState } from "react";  // for state management
-import { Link } from "react-router-dom"; //for routing
-import axios from "axios"; //For backend API access
-```
 
-Next, we create a signup form in JSX. the form has username, email, password, phone input Fields.
+Next Open Signup.jsx, we create a signup form in JSX. the form has username, email, password, phone input Fields.
+
+
 Updated Signup.js Code.
 
 ```jsx
-import { useState } from "react"; //used for state management
-import { Link} from "react-router-dom"; //used for routing
-import axios from "axios"; //used for API access
 
 //Arrow function
 const Signup = () => {
@@ -335,8 +327,6 @@ const Signup = () => {
                 Sign Up
               </button>
             </form>
-        
-              Already have an account? <Link to="/signin">Sign In</Link>
            
       </div>
     </div>

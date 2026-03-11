@@ -33,7 +33,7 @@ const Addproduct = () => {
     //Post data to Backend API
     try {
       const response = await axios.post(
-        "https://modcom2.pythonanywhere.com/api/add_product",
+        "https://modcom2026.alwaysdata.net/api/add_product",
         data
       );
       //Set loding message to empty, after a successful POST to API
