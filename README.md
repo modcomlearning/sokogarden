@@ -572,11 +572,11 @@ The Objective of this step is:
 
 ### Below is a Visual Explanation on how Axios Works in React JS + Python Flask API.
 
-![alt text](image-31.png)
+![alt text](image-32.png)
 
 1. User Input (React JS – Front-end): The user enters details such as username, email, password, and phone in a form in the React application.
 
-2. HTTP Request: React sends the data to the backend using Axios through an HTTP POST request.
+2. HTTP Request: React sends the data(username, email, password, phone) to the backend using Axios through an HTTP POST request.
 
 3. Backend Processing (Python Flask API): The Flask API receives the request and processes the submitted data.
 
@@ -586,6 +586,7 @@ The Objective of this step is:
 
 
 Before we proceed, Lets install axios
+
 ### What is Axios?
 Axios is a popular JavaScript library used to make HTTP requests (like getting or sending data to a server that Hosts your API).   You can use it to POST or GET data from APIs we created and hosted at Alwaysdata.
 
