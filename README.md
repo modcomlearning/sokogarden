@@ -572,7 +572,7 @@ The Objective of this step is:
 
 ### Below is a Visual Explanation on how Axios Works in React JS + Python Flask API.
 
-![alt text](image-32.png)
+![alt text](image-33.png)
 
 ### Explanation
 
