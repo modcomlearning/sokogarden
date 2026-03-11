@@ -559,8 +559,6 @@ Please Note in below input we update the Hooks defined above using <b>onChange</
 
 
 
-
-
 ### Step 4b: Signup
 Now we've created Hooks, a form that updates the hooks on input change(onChange).
 
@@ -932,6 +930,26 @@ export default Signin;
 ```
 
 ### Step 5b: Signin
+In this step we create Logic for the Signin.
+
+### Signin Visual Explanation.
+
+![alt text](image-35.png)
+
+### Explanation
+
+1. User Input (React JS – Front-end): The user enters details :  email, passwordnin a form in the React application.
+
+2. HTTP Request: React sends the data(username, email, password, phone) to the backend using Axios through an HTTP POST request.
+
+3. Backend Processing (Python Flask API): The Flask API receives the request and processes the submitted data.
+
+4. Database Interaction: Flask executes SQL queries to store the user information in the MySQL database.
+
+5. Response: The backend sends a response back to React, confirming whether the operation was successful/Failed
+
+
+
 Next, In your Arrow function, Create a submit function to handle data submission to Backend API.
 
 ```jsx
@@ -1098,7 +1116,25 @@ See below screenshot for wrong credentials.
 In this step we will be Uploading/Adding product to our API created in  https://github.com/modcomlearning/BackendAPI  (Step 6). <br>  Add_product API Demo.
 <br>
 
+### Visual Explnation of Upload Products.
+
+![alt text](image-34.png)
+
+### Explanation
+
+1. User Input (React JS – Front-end): The user enters details such as product_name, decription, cost, and product photo in a form in the React application.
+
+2. HTTP Request: React sends the data(username, email, password, phone) to the backend using Axios through an HTTP POST request.
+
+3. Backend Processing (Python Flask API): The Flask API receives the request and processes the submitted data.
+
+4. Database Interaction: Flask executes SQL queries to store the user information in the MySQL database.
+
+5. Response: The backend sends a response back to React, confirming whether the operation was successful/Failed
+
+
 Next, create a HTML form for product upload. <br>
+
 In your React App Open Addproduct.js and import below modules.
 
 ```jsx
