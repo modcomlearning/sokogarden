@@ -277,14 +277,11 @@ Get products use: http://127.0.0.1:3000/<br>
 In this Step we will work on Signup component, This component connect to the backend through the signup API created in https://github.com/modcomlearning/BackendAPI(Step4) <br>  NB: Please check Full component code at the end of this Step.
 <br>
 
-
 Next Open Signup.jsx, we create a signup form in JSX. the form has username, email, password, phone input Fields.
-
-
+<br/>
 Updated Signup.js Code.
 
 ```jsx
-
 //Arrow function
 const Signup = () => {
 
@@ -342,10 +339,114 @@ Open [http://localhost:3000/signup](http://localhost:3000/signup) to view it in 
 
 Output - A Signup Form.
 
-![alt text](image-9.png)
+![alt text](image-29.png)
 
 
-Then inside the Arrow function, Create below hooks.
+
+We now have a Form.
+<br/>
+Below the Sign up button we have a Link to Signin incase a user wishes to access Signin Component from Signup component.
+
+
+Todo that import Link from  React Router Dom as shown below, then add a Link after the Signup button.
+
+See code below.
+
+<br/>
+Signup.js Code.
+
+```jsx
+ import { Link } from "react-router-dom"; //for routing
+
+```
+Now your code looks like;
+
+
+```jsx
+ import { Link } from "react-router-dom"; //for routing
+//Arrow function
+const Signup = () => {
+
+  return (
+    <div className="row justify-content-center mt-4">
+      <div className="col-md-6 card shadow p-4">
+            
+            <h2>Sign Up</h2>
+            <form>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter Username"
+                  required
+                /> <br />
+               
+             
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Enter Email"
+                  required /> <br />
+            
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Enter Password"
+                  required
+                /> <br />
+        
+             
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter Phone"
+                  required
+                /> <br />
+          
+              <button type="submit" className="btn btn-primary">
+                Sign Up
+              </button>
+            </form>
+              {/* Add below button to Link to Signin */}
+            Already have an account? <Link to="/signin">Sign in</Link>
+
+      </div>
+    </div>
+  );
+};
+
+export default Signup;
+```
+
+Run your App <br>
+Runs the app in the development mode.\
+Open [http://localhost:3000/signup](http://localhost:3000/signup) to view it in your browser.
+
+Output - A Signup Form - with Link to Signin.
+
+![alt text](image-30.png)
+
+
+### Handling Form State with useState
+We use useState to keep track of form input values and update them as the user types.
+
+1. useState lets a React component “remember” things that can change.
+
+2. You use it to store a value (like a number, text, or true/false).
+
+3. When you change that value, React automatically updates the screen.
+
+4. Example: a counter that increases when you click a button.
+
+
+First import useState()
+in Signup.jsx Component add below import for useState()
+
+```jsx
+   import { useState } from "react"; //used for state management
+```
+
+
+Then inside the Arrow function, Create below hooks. Below hooks define 4 variables(username,email, pasword, phone) and initialize them to empty Strings.
 
 ```jsx
   //Below hooks are set to "" since the variables hold no data/strings
@@ -458,11 +559,54 @@ Please Note in below input we update the Hooks defined above using <b>onChange</
 
 
 
+
+
 ### Step 4b: Signup
 Now we've created Hooks, a form that updates the hooks on input change(onChange).
+The Objective of this step is:
+1. Get/Collect user inputs from updated hooks namely, username, email, password, phone
+2. Specify the Backend API endpoint i.e https://your-username.alwaysdata.net/api/signup
+3. POST the username, email, password, phone to the API 
+4. The API Saves them to MySQL Database
 
 
-In Signup.jsx, create below hooks for loading, success and error messages.
+### Below is a Visual Explanation on how Axios Works in React JS + Python Flask API.
+
+![alt text](image-31.png)
+
+1. User Input (React JS – Front-end): The user enters details such as username, email, password, and phone in a form in the React application.
+
+2. HTTP Request: React sends the data to the backend using Axios through an HTTP POST request.
+
+3. Backend Processing (Python Flask API): The Flask API receives the request and processes the submitted data.
+
+4. Database Interaction: Flask executes SQL queries to store the user information in the MySQL database.
+
+5. Response: The backend sends a response back to React, confirming whether the operation was successful.
+
+
+Before we proceed, Lets install axios
+### What is Axios?
+Axios is a popular JavaScript library used to make HTTP requests (like getting or sending data to a server that Hosts your API).   You can use it to POST or GET data from APIs we created and hosted at Alwaysdata.
+
+In this case, We will use it in our React Application to POST and GET data from our API 
+
+Install axios, In VS code Terminal under your application.
+
+```bash
+   npm install axios
+```
+
+Open Signup.jsx and import axios
+
+```jsx
+   import { useState } from "react"; //used for state management
+   // below or above usetate - import axios
+   import axios from "axios"; //used for API access 
+   
+```
+
+In Signup.jsx Component, Inside the Arrow Function create below hooks for loading, success and error messages.
 We set below hooks to empty strings, to be updated later in this program.
 <br>
 
@@ -473,7 +617,7 @@ We set below hooks to empty strings, to be updated later in this program.
 ```
 
 Next, we need to create a function to submit the data to our API.
-inside the arrow function of Signup.js, add below function. This function will collect updated input data(Stored in Hooks) and post to our Backend API
+inside the arrow function of Signup.js, add below function. This function will collect/get updated input data(Stored in Hooks) and post to our Backend API.
 
 ```javascript
     //create function
@@ -484,7 +628,7 @@ inside the arrow function of Signup.js, add below function. This function will c
         setLoading("Please wait as we upload your data!");
 
         try {
-        //append updated hooks variables into data varaible 
+        //append updated hooks variables into FOrm Data variable
         const data = new FormData();
         data.append("username", username);
         data.append("email", email);
@@ -496,7 +640,7 @@ inside the arrow function of Signup.js, add below function. This function will c
             "https://modcom2.pythonanywhere.com/api/signup",
             data
         );
-          //Set loading variable to empty string. 
+          //Set loading variable to empty string - to remove the loading message
         setLoading("");
       
         //Update success message upon successful data submission/post
