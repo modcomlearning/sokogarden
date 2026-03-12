@@ -1125,13 +1125,11 @@ Next, In your Arrow function, Create a submit function to handle data submission
 ## How the Login submit() Function Works (Step-by-Step)
 
 ### 1. Preparing the Form
-
 Stopping the Refresh (e.preventDefault): Normally, when you click a "Submit" button, the whole browser page reloads. We stop this so the app stays fast and smooth.
 
 Showing a "Wait" Message: We immediately show a message like "Please wait..." so the user knows the app is working and doesn't click the button twice.
 
 ### 2. Packing the Data
-
 The "Envelope" (FormData): Think of this like putting your Email and Password into an envelope/FormData. We bundle them together so they are ready to be sent to the server.
 
 Filling the Details: We take the email and password the user typed and "append" (add) them to that envelope/data
