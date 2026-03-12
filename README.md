@@ -685,38 +685,39 @@ When a user clicks "Submit," they might think nothing is happening if the intern
 
 Think of FormData as a digital envelope.
 
-The Process: We take individual pieces of information (username, email, password, phone) and "append" (stick) them into this one envelope.
+    The Process: We take individual pieces of information (username, email, password, phone) and "append" (stick) them into this one envelope.
 
-The Logic: Instead of sending four separate tiny messages, we send one organized package to the server.
+    The Logic: Instead of sending four separate tiny messages, we send one organized package to the server.
 
 
 4. Sending the Data (Axios.post)
 
 This is the most important part. It is the "Messenger" that travels from the user's computer to the server.
 
-The Method: We use POST because we are sending new information to be saved.
+    The Method: We use POST because we are sending new information to be saved.
 
-The URL: https://your-username.alwaysdata.com/api/signup is the specific "address" on the internet where our Python Flask API is waiting to receive data.
+    The URL: https://your-username.alwaysdata.com/api/signup is the specific "address" on the internet where our Python Flask API is waiting to receive data.
 
 
 5. Cleaning Up (The "Success" Path)
 
 If the server says "Okay, I saved it!", we do three things:
 
-Remove Loading: Hide the "Please wait" message.
+    Remove Loading: Hide the "Please wait" message.
 
-Show Success: Display a message like "User Registered Successfully!"
+    Show Success: Display a message like "User Registered Successfully!"
 
-Reset Fields: We clear the text boxes (set them to ""). This makes the form ready for the next entry and confirms to the user that the task is finished.
+    Reset Fields: We clear the text boxes (set them to ""). This makes the form ready for the next entry and confirms to the user that the task is finished.
 
 
 6. Handling Mistakes (Try / Catch)
 
 In coding, things can go wrong (e.g., the server is down, or the user's internet cuts out).
 
-The Safety Net: The try block is where we hope everything works. If it fails, the catch block "catches" the error.
+    The Safety Net: The try block is where we hope everything works. If it fails, the catch block "catches" the error.
 
-The Result: Instead of the app crashing or showing a white screen, it shows a friendly message: "Error: Network disconnected."
+    The Result: Instead of the app crashing or showing a white screen, it shows a friendly message: "Error: Network disconnected."
+
 
 
 
@@ -910,11 +911,11 @@ Add below imports
 ```
 
 ### Brief explanation
-1. React & useState → UI creation and state management
+ 1. React & useState → UI creation and state management
 
-2. Link & useNavigate → Client-side routing and navigation
+ 2. Link & useNavigate → Client-side routing and navigation
 
-3. Axios → Making HTTP requests to APIs
+ 3. Axios → Making HTTP requests to APIs
       
 You can alo import them one by one when you need them in your code.
 
@@ -1145,16 +1146,16 @@ Next, In your Arrow function, Create a submit function to handle data submission
 
     If the Login is Correct:
 
-    Save the User: We save the user's name or ID in the browser's "Long-term Memory" (localStorage). This way, if they refresh the page, they are still logged in.
+        Save the User: We save the user's name or ID in the browser's "Long-term Memory" (localStorage). This way, if they refresh the page, they are still logged in.
 
-    Move to Home Page: We automatically send the user to the home screen (the / page).
-    Here we ue the Navigation.
+        Move to Home Page: We automatically send the user to the home screen (the / page).
+        Here we ue the Navigation.
 
     If the Login is Wrong: * We clear the "Please wait" message and show an error like "Wrong password" or "User not found" instead.
 
 ### 5. Handling "Oops" Moments
 
-The Safety Net (try...catch): If the internet cuts out or the server crashes, the code won't break. It catches the error, stops the loading message, and tells the user that something went wrong.
+    The Safety Net (try...catch): If the internet cuts out or the server crashes, the code won't break. It catches the error, stops the loading message, and tells the user that something went wrong.
 
 
 
