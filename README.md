@@ -1141,15 +1141,15 @@ Talking to the Server: We use a tool called Axios to send our "envelope" to a sp
 The "Wait" (await): The code pauses here for a second while the server checks if the password is correct, but it doesn't freeze the whole app.
 
 ### 4. Checking the Answer
+#### If the Login is Correct:
 
-If the Login is Correct:
+Save the User: We save the user's name or ID in the browser's "Long-term Memory" (localStorage). This way, if they refresh the page, they are still logged in.
 
-    Save the User: We save the user's name or ID in the browser's "Long-term Memory" (localStorage). This way, if they refresh the page, they are still logged in.
+Move to Home Page: We automatically send the user to the home screen (the / page).
+Here we ue the Navigation.
 
-    Move to Home Page: We automatically send the user to the home screen (the / page).
-    Here we ue the Navigation.
-
-If the Login is Wrong: * We clear the "Please wait" message and show an error like "Wrong password" or "User not found" instead.
+#### If the Login is Wrong: 
+We clear the "Please wait" message and show an error like "Wrong password" or "User not found" instead.
 
 ### 5. Handling "Oops" Moments
 
