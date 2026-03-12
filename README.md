@@ -15,7 +15,7 @@ Please check the Backend API Implementation here. <br>
 https://github.com/modcomlearning/BackendAPI
 <br/>
 
-By the end of this repo, you will create an eCommerce web application similar to https://sokogarden.vercel.app/<br>
+By the end of this repo, you will create an eCommerce web application similar to https://dailyyoghurt.vercel.app/<br>
 
 
 ### Step 1 : Create React App, File Structure, Run App.
@@ -872,10 +872,54 @@ Fill in the Details in the form and click sign up.
 
 
 ### Step 5a: Signin
-In this step, we create a login form. This form will communicate with API created in https://github.com/modcomlearning/BackendAPI(Step5).
+In this step, we create a login form. This form will communicate with API created in https://github.com/modcomlearning/BackendAPI (Step5).
+
+Below is a display of how our signin will look like at the end of Step 5a and 5b
+https://dailyyoghurt.vercel.app/signin
+
+
+## Theoritical Understanding of Signin
+
+### Signin Visual Explanation.
+
+![alt text](image-35.png)
+
+### Explanation
+
+1. User Input (React JS – Front-end): The user enters details :  email, passwordnin a form in the React application.
+
+2. HTTP Request: React sends the data(username, email, password, phone) to the backend using Axios through an HTTP    POST request.
+
+3. Backend Processing (Python Flask API): The Flask API receives the request and processes the submitted data.
+
+4. Database Interaction: Flask executes SQL queries to store the user information in the MySQL database.
+
+5. Response: The backend sends a response back to React, confirming whether the operation was successful/Failed
+
 
 Open Signin.js<br/>
-Create below form 
+
+NB: As from our Signup component we can import neccessary Component to be used in this Signin Component
+
+
+Add below imports
+
+```jsx
+   import React, { useState } from "react"; //for state management
+   import { Link, useNavigate } from "react-router-dom";  //for routing/navigation
+   import axios from "axios"; //for API Access
+```
+
+### Brief explanation
+ 1. React & useState → UI creation and state management
+
+ 2. Link & useNavigate → Client-side routing and navigation
+
+ 3. Axios → Making HTTP requests to APIs
+      
+You can alo import them one by one when you need them in your code.
+
+Now, in JSX Create below form, Its a Signuin Form that has two fields email and password for registered users to Signin.
 
 ```jsx
 import React, { useState } from "react"; //for state management
@@ -906,6 +950,7 @@ const Signin = () => {
               </button>
             </form>
 
+                {/* Below is a Link to /signup Route incase a user wishes to go to signup component */}
               Don't have an account? <Link to="/signup">Sign Up</Link>
         
       </div>
@@ -931,7 +976,7 @@ In your Signin Arrow function, initialize below hooks
   const [loading, setLoading] = useState(""); //loading hook variable
   const [error, setError] = useState(""); //error hook variable
 
-  const navigate = useNavigate(); // For redirection
+  const navigate = useNavigate(); // For redirection after login success
 ```
 
 
@@ -950,7 +995,7 @@ const Signin = () => {
   const [loading, setLoading] = useState("");//loading hook variable
   const [error, setError] = useState("");//error hook variable
 
-  const navigate = useNavigate(); // For redirection to another Component
+  const navigate = useNavigate(); // For redirection/navigating to another Component
 
   return (
     <div className="row justify-content-center mt-5">
@@ -978,6 +1023,7 @@ const Signin = () => {
               </button>
             </form>
 
+                {/* Below is a Link to /signup Route incase a user wishes to go to signup component */}
               Don't have an account? <Link to="/signup">Sign Up</Link>
       </div>
     </div>
@@ -986,6 +1032,34 @@ const Signin = () => {
 
 export default Signin;
 ```
+
+### Explanation
+
+### The onChange() Function
+
+The onChange attribute is an event listener. It fires every single time the user types a character, deletes a character, or pastes text into the input field.
+
+    (e) => ...: This is an arrow function that receives an event object (conventionally named e or event).
+
+    e.target: This refers to the specific element that triggered the event (in this case, the <input /> tag).
+
+    e.target.value: This is the current string of text inside the input box at that exact moment.
+
+    setEmail(...) / setPassword(...): These are state setter functions (likely from a useState hook). They take that new value and update the React state variable.
+
+
+### How the Data Flows
+
+
+    User types "bob@gmail.com" into the keyboard.
+
+    onChange runs, capturing "bob@gmail.com" via e.target.value.
+
+    The Setter (setEmail) updates the email variable to "bob@gmail.com".
+
+    The value={email} tells the input to display "bob@gmail.com".
+
+
 
 ### Step 5b: Signin
 In this step we create Logic for the Signin.
@@ -998,14 +1072,13 @@ In this step we create Logic for the Signin.
 
 1. User Input (React JS – Front-end): The user enters details :  email, passwordnin a form in the React application.
 
-2. HTTP Request: React sends the data(username, email, password, phone) to the backend using Axios through an HTTP POST request.
+2. HTTP Request: React sends the data(username, email, password, phone) to the backend using Axios through an HTTP    POST request.
 
 3. Backend Processing (Python Flask API): The Flask API receives the request and processes the submitted data.
 
 4. Database Interaction: Flask executes SQL queries to store the user information in the MySQL database.
 
 5. Response: The backend sends a response back to React, confirming whether the operation was successful/Failed
-
 
 
 Next, In your Arrow function, Create a submit function to handle data submission to Backend API.
@@ -1029,15 +1102,14 @@ Next, In your Arrow function, Create a submit function to handle data submission
 
       setLoading(""); //After successful posting, Clear the loading message
 
-      // Check if the response has user item,
-    
+      // Check if the response has user item, user exists
       if (response.data.user) {
-        // If user is Found, Store user details in localStorage
-        localStorage.setItem("user", JSON.stringify(response.data.user));
+        //If Yes
         // Redirect to /getproducts Component
         navigate("/");
       } 
       else {
+        //If Not
         //User Not Found, Show Error message
         setError(response.data.message);
       }
@@ -1048,6 +1120,43 @@ Next, In your Arrow function, Create a submit function to handle data submission
     }
   };
 ```
+
+
+## How the Login submit() Function Works (Step-by-Step)
+
+### 1. Preparing the Form
+
+    Stopping the Refresh (e.preventDefault): Normally, when you click a "Submit" button, the whole browser page reloads. We stop this so the app stays fast and smooth.
+
+    Showing a "Wait" Message: We immediately show a message like "Please wait..." so the user knows the app is working and doesn't click the button twice.
+
+### 2. Packing the Data
+
+    The "Envelope" (FormData): Think of this like putting your Email and Password into an envelope/FormData. We bundle them together so they are ready to be sent to the server.
+
+    Filling the Details: We take the email and password the user typed and "append" (add) them to that envelope/data
+
+### 3. Sending the Request
+
+    Talking to the Server: We use a tool called Axios to send our "envelope" to a specific web address (the API) where the user accounts are kept.
+
+    The "Wait" (await): The code pauses here for a second while the server checks if the password is correct, but it doesn't freeze the whole app.
+
+### 4. Checking the Answer
+
+    If the Login is Correct:
+
+        Save the User: We save the user's name or ID in the browser's "Long-term Memory" (localStorage). This way, if they refresh the page, they are still logged in.
+
+        Move to Home Page: We automatically send the user to the home screen (the / page).
+        Here we ue the Navigation.
+
+    If the Login is Wrong: * We clear the "Please wait" message and show an error like "Wrong password" or "User not found" instead.
+
+### 5. Handling "Oops" Moments
+
+    The Safety Net (try...catch): If the internet cuts out or the server crashes, the code won't break. It catches the error, stops the loading message, and tells the user that something went wrong.
+
 
 
 Finally, We need to Call submit function created above when a user clicks a the signin button. <br/> In your Form openning tag, add an onSubmit attribute and Call the submit function.
@@ -1144,7 +1253,7 @@ const Signin = () => {
                 Sign In
               </button>
             </form>
-
+              {/* Below is a Link to /signup Route incase a user wishes to go to signup component */}
               Don't have an account? <Link to="/signup">Sign Up</Link>
         
       </div>
@@ -1166,6 +1275,7 @@ Fill in the Details in the form and click sign in.  If user credenatials provide
 See below screenshot for wrong credentials.
 
 ![alt text](image-12.png)
+
 
 
 ### Step 6a: Add/Upload Product  - Form, Hooks

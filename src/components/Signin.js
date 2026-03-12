@@ -74,6 +74,8 @@ const Signin = () => {
               </button>
             </form>
 
+              {/* Below is a Link to /signup Route incase a user wishes to go to signup component */}
+
               Don't have an account? <Link to="/signup">Sign Up</Link>
         
       </div>
