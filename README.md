@@ -1152,7 +1152,6 @@ Here we ue the Navigation.
 We clear the "Please wait" message and show an error like "Wrong password" or "User not found" instead.
 
 ### 5. Handling "Oops" Moments
-
 The Safety Net (try...catch): If the internet cuts out or the server crashes, the code won't break. It catches the error, stops the loading message, and tells the user that something went wrong.
 
 
