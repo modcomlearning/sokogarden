@@ -638,7 +638,7 @@ inside the arrow function of Signup.js, add below function. This function will c
 
         //use axios to post above data to our Backend API
         const response = await axios.post(
-            "https://modcom2.pythonanywhere.com/api/signup",
+            "https://modcom2026.alwaysdata.net/api/signup",
             data
         );
           //Set loading variable to empty string - to remove the loading message
@@ -776,7 +776,7 @@ const Signup = () => {
 
       //post your data to your Backend API
       const response = await axios.post(
-        "https://modcom2.pythonanywhere.com/api/signup",
+        "https://modcom2026.alwaysdata.net/api/signup",
         data
       );
       //After data has been posted, set success hook variable to empty
@@ -892,9 +892,9 @@ https://dailyyoghurt.vercel.app/signin
 
 3. Backend Processing (Python Flask API): The Flask API receives the request and processes the submitted data.
 
-4. Database Interaction: Flask executes SQL queries to store the user information in the MySQL database.
+4. Database Interaction: Flask executes SQL queries to find if the user is found in the MySQL database.
 
-5. Response: The backend sends a response back to React, confirming whether the operation was successful/Failed
+5. Response: The backend sends a response back to React, confirming if user was found or not
 
 
 Open Signin.js<br/>
@@ -1076,9 +1076,9 @@ In this step we create Logic for the Signin.
 
 3. Backend Processing (Python Flask API): The Flask API receives the request and processes the submitted data.
 
-4. Database Interaction: Flask executes SQL queries to store the user information in the MySQL database.
+4. Database Interaction: Flask executes SQL queries to find if the user is found in the MySQL database.
 
-5. Response: The backend sends a response back to React, confirming whether the operation was successful/Failed
+5. Response: The backend sends a response back to React, confirming if user was found or not
 
 
 Next, In your Arrow function, Create a submit function to handle data submission to Backend API.
@@ -1097,7 +1097,7 @@ Next, In your Arrow function, Create a submit function to handle data submission
 
       //Post above data to Backend API
       const response = await axios.post(
-        "https://modcom2.pythonanywhere.com/api/signin",
+        "https://modcom2026.alwaysdata.net/api/signin",
         data);
 
       setLoading(""); //After successful posting, Clear the loading message
@@ -1199,7 +1199,7 @@ const Signin = () => {
 
       //Post above data to Backend API
       const response = await axios.post(
-        "https://modcom2.pythonanywhere.com/api/signin",
+        "https://modcom2026.alwaysdata.net/api/signin",
         data);
 
       setLoading(""); //After successful posting, Clear the loading message
@@ -1291,9 +1291,9 @@ In this step we will be Uploading/Adding product to our API created in  https://
 
 3. Backend Processing (Python Flask API): The Flask API receives the request and processes the submitted data.
 
-4. Database Interaction: Flask executes SQL queries to store the user information in the MySQL database.
+4. Database Interaction: Flask executes SQL queries to store the product information in the MySQL database.
 
-5. Response: The backend sends a response back to React, confirming whether the operation was successful/Failed
+5. Response: The backend sends a response back to React, confirming whether the product was uploaded or Not
 
 
 Next, create a HTML form for product upload. <br>
@@ -1524,7 +1524,7 @@ Below is the submit function implementation.
     //Post data to Backend API
     try {
       const response = await axios.post(
-        "https://modcom2.pythonanywhere.com/api/add_product",
+        "https://modcom2026.alwaysdata.net/api/add_product",
         data
       );
       //Set loding message to empty, after a successful POST to API
@@ -1575,7 +1575,7 @@ Sends the collected data to the backend API using a POST request:
 
 ```javascript
 const response = await axios.post(
-  "https://modcom2.pythonanywhere.com/api/add_product",
+  "https://modcom2026.alwaysdata.net/api/add_product",
   data
 );
 ```
@@ -1657,7 +1657,7 @@ const Addproduct = () => {
     //Post data to Backend API
     try {
       const response = await axios.post(
-        "https://modcom2.pythonanywhere.com/api/add_product",
+        "https://modcom2026.alwaysdata.net/api/add_product",
         data
       );
       //Set loding message to empty, after a successful POST to API
@@ -1845,7 +1845,7 @@ Initialize below Hooks
 Specify the image location URL, this is where the image image files were saved in pythonanywhere.<br>. 
 ```jsx
    //Specify image location URL
-    const img_url = "https://modcom2.pythonanywhere.com/static/images/"
+    const img_url = "https://modcom2026.alwaysdata.net/static/images/"
 ```
 
 Next, write below code snippet to get all records from get_product_details Backend API. <br>
@@ -1855,7 +1855,7 @@ First, Create an Arrow  Function named getproducts() and write below code <br>
   const getproducts = async()=>{
         setLoading("Please wait, We are retrieving the products .."); // Set loading message when fetching starts
         try {
-        const response = await axios.get("https://modcom2.pythonanywhere.com/api/get_product_details")
+        const response = await axios.get("https://modcom2026.alwaysdata.net/api/get_product_details")
         setProducts(response.data)
         setLoading("")
         }
@@ -1881,7 +1881,7 @@ Here's a simple breakdown of what the useEffect hook does:
 setLoading("Please wait, We are retrieving the products .."); sets a loading message while the data is being fetched.
 <br><br/>
 <b>API Call:</b> <br>
-The axios.get("https://modcom2.pythonanywhere.com/api/get_product_details") makes a GET request to the provided API URL to retrieve product details.
+The axios.get("https://modcom2026.alwaysdata.net/api/get_product_details") makes a GET request to the provided API URL to retrieve product details.
 <br><br/>
 <b>Response Handling: </b> <br>
 On try block, The response variable containes the products details and set into the products state using setProducts(response.data).
@@ -1970,12 +1970,12 @@ const Getproducts = () => {
     const [error, setError] = useState(""); //error message hook
     
     //Specify image location URL
-    const img_url = "https://modcom2.pythonanywhere.com/static/images/"
+    const img_url = "https://modcom2026.alwaysdata.net/static/images/"
     
     const getproducts = async()=>{
         setLoading("Please wait, We are retrieving the products .."); // Set loading message when fetching starts
         try {
-        const response = await axios.get("https://modcom2.pythonanywhere.com/api/get_product_details")
+        const response = await axios.get("https://modcom2026.alwaysdata.net/api/get_product_details")
         setProducts(response.data)
         setLoading("")
         }
@@ -2207,7 +2207,7 @@ Create a submit function to send phone and amount to our Backend Payment API.
 
       //post your data to your Payment Backend API
       const response = await axios.post(
-        "https://modcom2.pythonanywhere.com/api/mpesa_payment",
+        "https://modcom2026.alwaysdata.net/api/mpesa_payment",
         data
       );
       //Update message Hook with a new message
@@ -2251,7 +2251,7 @@ const Makepayment = ()=> {
 
       //post your data to your Backend API
       const response = await axios.post(
-        "https://modcom2.pythonanywhere.com/api/mpesa_payment",
+        "https://modcom2026.alwaysdata.net/api/mpesa_payment",
         data
       );
 
