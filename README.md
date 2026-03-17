@@ -1780,6 +1780,110 @@ const Getproducts = () => {
 export default Getproducts;
 ```
 
+Next, we need to fetch/get all products from our getproducts Backend API, once we get the product we will show each and every product in a Card View<br>
+
+
+Lets look at how our GET products API diplays the data.
+
+![alt text](image-38.png)
+
+As mentioned earlier, we now want to get the records as shown above to our frontend, display in Cards so that users can shop them.
+
+Let Code.
+
+In <<b>Getproducts.jsx </b>
+
+Import the required modules 
+
+```jsx
+import { useState, useEffect } from "react"; // for state management
+import axios from "axios"; //For API Access
+```
+These are React Hooks used to manage the lifecycle of your data:
+
+useState: Creates a "container" to hold your products. When the data inside this container changes (e.g., after the API responds), React automatically re-renders the page to show the new cards.
+
+useEffect: This is a trigger. You use it to tell React: "As soon as this page loads, go fetch the products from the backend." Without this, your code wouldn't know when to start the data request.
+
+Initialize below Hooks
+
+```jsx
+   // Initialize Hooks
+    const [products, setProducts] = useState([]);  // Default to empty array instead of a string
+    const [loading, setLoading] = useState(""); //For loading message
+    const [error, setError] = useState(""); //error message hook
+```
+
+Specify the image location URL, this is where the image image files were saved in pythonanywhere.<br>. 
+```jsx
+   //Specify image location URL
+    const img_url = "https://modcom2026.alwaysdata.net/static/images/"
+```
+
+Next, write below code snippet to get all records from get_product_details Backend API. <br>
+First, Create an Arrow  Function named getproducts() and write below code <br>
+
+```jsx
+  const getproducts = async()=>{
+        setLoading("Please wait, We are retrieving the products .."); // Set loading message when fetching starts
+        try {
+        const response = await axios.get("https://modcom2026.alwaysdata.net/api/get_product_details")
+        setProducts(response.data) //Update product variable with product list from API.
+        setLoading("") //set Loading Message to empty - to stop loading since we already have products
+        }
+        catch(error){
+            //Show any errors that might have occurred
+            setLoading("")  //remove loading message
+            setError("There was an Error")     
+        }
+    }//end function
+```
+
+Call Above Functions inside useEffect()
+
+```jsx
+  useEffect(() => {   //use effects makes the Page not reload several times, reload only once
+       getproducts();
+    }, []); // empty dependency array ensures this runs only once when the component mounts
+```
+<br>
+Here's a simple breakdown of what the useEffect hook does:
+<br><br/>
+
+<b>Loading State:</b> <br>
+setLoading("Please wait, We are retrieving the products .."); sets a loading message while the data is being fetched.
+<br><br/>
+<b>API Call:</b> <br>
+The axios.get("https://modcom2026.alwaysdata.net/api/get_product_details") makes a GET request to the provided API URL to retrieve product details.
+<br><br/>
+<b>Response Handling: </b> <br>
+On try block, The response variable containes the products details and set into the products state using setProducts(response.data).
+The loading message is cleared with setLoading("").
+<br><br/>
+<b>Error Handling: </b> <br>
+On error (.catch), an error message is set into the error state with setError("There was an Error").
+The loading message is cleared with setLoading("").
+<br><br/>
+
+<b>Triggering Fetch on Mount: - useEffect()</b>
+<br>
+The useEffect hook is used to run a function when the component loads. In this case, it runs the API call to fetch product details when the component first loads. useEffect runs after the component renders/display.  Without useEffect the function getproducts() will be called/accessed several times. NB: If you include variables in the array[], useEffect will run whenever those variables change. In our the code inside useEffect run only once when Page loads.
+<br>
+
+Inside use Effect, we Call getproducts() function to fetch all products.
+<br/><br/>
+
+<b>Summary:</b>
+1. The hook fetches data when the component mounts. <br>
+2. It shows a loading message while the data is being fetched.<br>
+3. It updates the state with fetched data or shows an error if something goes wrong.<br>
+<br>
+
+
+
+Now that we have the product loaded from API, Its time to place the products in individual Crad View.
+
+
 Create a Card to demonstrate how a single product will display, Update the HTML code as follows<br>
 
 ```jsx
@@ -1827,94 +1931,16 @@ This a Dummy/Example Product, Not the ones from the Database <br>
 
 ![alt text](image-27.png)
 
-Next, we need to fetch/get all products from our getproducts Backend API and display in the Card we've just seen<br>
 
 
-Import the required modules 
+in JSX code with a Card View that we have done above, we loop/map through the products from the API and display them in the Card, Update the Card by Removing the Dummy/Example product and bind with the products from your database. Do below code. <br>
+Recall our products List Structure, the products variaable has many products and each product has product_name, product_description, product_cost, product_photo.
 
-```jsx
-import { useState, useEffect } from "react"; // for state management
-import axios from "axios"; //For API Access
-import { Link, useNavigate } from "react-router-dom"; // For link/navigate to other component
-```
+See below how the API fetches them.
 
+![alt text](image-39.png)
 
-Initialize below Hooks
-
-```jsx
-   // Initialize Hooks
-    const [products, setProducts] = useState([]);  // Default to empty array instead of a string
-    const [loading, setLoading] = useState(""); //For loading message
-    const [error, setError] = useState(""); //error message hook
-    const navigate = useNavigate(); 
-```
-
-Specify the image location URL, this is where the image image files were saved in pythonanywhere.<br>. 
-```jsx
-   //Specify image location URL
-    const img_url = "https://modcom2026.alwaysdata.net/static/images/"
-```
-
-Next, write below code snippet to get all records from get_product_details Backend API. <br>
-First, Create an Arrow  Function named getproducts() and write below code <br>
-
-```jsx
-  const getproducts = async()=>{
-        setLoading("Please wait, We are retrieving the products .."); // Set loading message when fetching starts
-        try {
-        const response = await axios.get("https://modcom2026.alwaysdata.net/api/get_product_details")
-        setProducts(response.data)
-        setLoading("")
-        }
-        catch(error){
-            setLoading("")
-            setError("There was an Error")    
-        }
-    }//end function
-```
-
-Call Above Functions inside useEffect()
-
-```jsx
-  useEffect(() => {
-       getproducts();
-    }, []); // empty dependency array ensures this runs only once when the component mounts
-```
-<br>
-Here's a simple breakdown of what the useEffect hook does:
-<br><br/>
-
-<b>Loading State:</b> <br>
-setLoading("Please wait, We are retrieving the products .."); sets a loading message while the data is being fetched.
-<br><br/>
-<b>API Call:</b> <br>
-The axios.get("https://modcom2026.alwaysdata.net/api/get_product_details") makes a GET request to the provided API URL to retrieve product details.
-<br><br/>
-<b>Response Handling: </b> <br>
-On try block, The response variable containes the products details and set into the products state using setProducts(response.data).
-The loading message is cleared with setLoading("").
-<br><br/>
-<b>Error Handling: </b> <br>
-On error (.catch), an error message is set into the error state with setError("There was an Error").
-The loading message is cleared with setLoading("").
-<br><br/>
-
-<b>Triggering Fetch on Mount: - useEffect()</b>
-<br>
-The useEffect hook is used to run a function when the component loads. In this case, it runs the API call to fetch product details when the component first loads. useEffect runs after the component renders/display.  Without useEffect the function getproducts() will be called/accessed several times. NB: If you include variables in the array[], useEffect will run whenever those variables change. In our the code inside useEffect run only once when Page loads.
-<br>
-
-Inside use Effect, we Call getproducts() function to fetch all products.
-<br/><br/>
-
-<b>Summary:</b>
-1. The hook fetches data when the component mounts. <br>
-2. It shows a loading message while the data is being fetched.<br>
-3. It updates the state with fetched data or shows an error if something goes wrong.<br>
-<br>
-
-
-in JSX that we had done earlier, we loop/map through the products from the API and display them in the Card, Update the Card by Removing the Dummy/Example product and bind with the products from your database. Do below code. <br>
+Please note that variables 'products' is now fully loaded with products, we them display each product in a Card View, we take the one product from products and map it into a Card View using its details namely  product_name, product_description, product_cost, product_photo.. See below.
 
 ```jsx
 return (
@@ -1951,7 +1977,6 @@ return (
   ```
 
 
-
 In App.css add below css class to style the image <br>
 
 ```css
@@ -1967,7 +1992,7 @@ Full Getproducts.js Code <br>
 ```jsx
 import { useState, useEffect } from "react"; // for state management
 import axios from "axios"; //For API Access
-import { Link } from "react-router-dom"; // For link to other component
+
 
 const Getproducts = () => {
 
@@ -2033,7 +2058,6 @@ const Getproducts = () => {
 export default Getproducts;
 ```
 
-
 Run your App <br>
 Runs the app in the development mode.\
 Open [http://localhost:3000/](http://localhost:3000/) to view it in your browser.
@@ -2041,6 +2065,7 @@ Open [http://localhost:3000/](http://localhost:3000/) to view it in your browser
 Output <br>
 
 ![alt text](image-16.png)
+
 
 
 ### Step 8: Make Payment - Payment Integration.

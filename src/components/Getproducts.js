@@ -40,6 +40,7 @@ const Getproducts = () => {
             {loading && <p>{loading}</p>}
             {error && <p className="text-danger">{error}</p>}
 
+           
             {/* Map over products and display them */}
             {products.map((product) => (
                 <div className="col-md-3 justify-content-center mb-4" key={product.id}>
