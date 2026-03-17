@@ -1765,7 +1765,8 @@ In this step we will be getting all products we uploaded on the API. The get pro
 ![alt text](image-37.png)
 
 
-In your React App Open Getproducts.js
+In your React App -> <b>Open Getproducts.js</b>
+
 <br>
 
 ```jsx
@@ -2113,7 +2114,7 @@ Output<br>
 <b>Implementing the LIPA NA MPESA Logic </b><br>
 To make our App have MPESA Integration, First we need to add some code in Getproducts.js
 
-Open Getproducts.js and locate the <b>'Purchase Now'</b> Button in JSX.
+<b>Open Getproducts.js </b>and locate the <b>'Purchase Now'</b> Button in JSX.
 Currently our Button looks like below <br>
 ```jsx
  <button className="btn btn-dark mt-2 w-100">Purchase Now</button>
