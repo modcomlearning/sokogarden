@@ -1927,7 +1927,7 @@ Runs the app in the development mode.\
 Open [http://localhost:3000/](http://localhost:3000/) to view it in your browser.
 <br>
 
-Output<br>
+<b>Output</b><br>
 Below shows a Card View of how a Product will be displayed<br>
 This a Dummy/Example Product, Not the ones from the Database <br>
 
@@ -2064,7 +2064,7 @@ Run your App <br>
 Runs the app in the development mode.\
 Open [http://localhost:3000/](http://localhost:3000/) to view it in your browser.
 <br>
-Output <br>
+<b>Output </b><br>
 
 ![alt text](image-16.png)
 
@@ -2106,7 +2106,7 @@ Run your App <br>
 Runs the app in the development mode.\
 Open [http://localhost:3000/makepayment](http://localhost:3000/makepayment) to view it in your browser.
 <br>
-Output<br>
+<b>Output</b><br>
 
 ![alt text](image-19.png)
 
