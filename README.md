@@ -1322,7 +1322,7 @@ const Addproduct = () => {
       <div className="col-md-6 card shadow p-4">
         <form>
             <h3>Upload Products</h3>
-             {/* Call setProductName onChange to update  produce name Hook */}
+             {/* Call setProductName onChange to update  product name Hook */}
             <input
               type="text"
               placeholder="Enter Product Name"
@@ -1330,7 +1330,7 @@ const Addproduct = () => {
               required
             /> 
             <br />
-            {/* Call setProductDescription onChange to update  produce description Hook */}
+            {/* Call setProductDescription onChange to update  product description Hook */}
            <textarea
               className="form-control"
               placeholder="Describe your Product"
@@ -1338,7 +1338,7 @@ const Addproduct = () => {
             ></textarea>
             <br />
       
-              {/* Call setProductCost onChange to update  produce cost Hook */}
+              {/* Call setProductCost onChange to update  product cost Hook */}
             <input
               type="number"
               placeholder="Enter Product Cost"
@@ -1347,7 +1347,7 @@ const Addproduct = () => {
             />
             <br />
         
-                {/* Call setProductPhoto onChange to update  produce photo Hook */}
+                {/* Call setProductPhoto onChange to update  product photo Hook */}
              <b>Browse/Upload Product Image</b>
             <input
               type="file"
@@ -1417,7 +1417,7 @@ const Addproduct = () => {
       <div className="col-md-6 card shadow p-4">
         <form>
             <h3>Upload Products</h3>
-             {/* Call setProductName onChange to update  produce name Hook */}
+             {/* Call setProductName onChange to update  product name Hook */}
             <input
               type="text"
               placeholder="Enter Product Name"
@@ -1427,7 +1427,7 @@ const Addproduct = () => {
               required
             /> 
             <br />
-            {/* Call setProductDescription onChange to update  produce description Hook */}
+            {/* Call setProductDescription onChange to update  product description Hook */}
            <textarea
               className="form-control"
               placeholder="Describe your Product"
@@ -1437,7 +1437,7 @@ const Addproduct = () => {
             ></textarea>
             <br />
       
-              {/* Call setProductCost onChange to update  produce cost Hook */}
+              {/* Call setProductCost onChange to update  product cost Hook */}
             <input
               type="number"
               placeholder="Enter Product Cost"
@@ -1448,7 +1448,7 @@ const Addproduct = () => {
             />
             <br />
         
-                {/* Call setProductPhoto onChange to update  produce photo Hook */}
+                {/* Call setProductPhoto onChange to update  product photo Hook */}
              <b>Browse/Upload Product Image</b>
             <input
               type="file"
@@ -1689,7 +1689,7 @@ const Addproduct = () => {
             {message}
             {error}
             <h3>Upload Products</h3>
-            {/* Call setProductName onChange to update  produce name Hook */}
+            {/* Call setProductName onChange to update  product name Hook */}
             <input
               type="text"
               placeholder="Enter Product Name"
@@ -1699,7 +1699,7 @@ const Addproduct = () => {
               required
             /> <br />
 
-            {/* Call setProductDescription onChange to update  produce description Hook */}
+            {/* Call setProductDescription onChange to update  product description Hook */}
            <textarea
               className="form-control"
               placeholder="Describe your Product"
@@ -1709,7 +1709,7 @@ const Addproduct = () => {
             ></textarea>
             <br />
       
-             {/* Call setProductCost onChange to update  produce cost Hook */}
+             {/* Call setProductCost onChange to update  product cost Hook */}
             <input
               type="number"
               placeholder="Enter Product Cost"
@@ -1720,7 +1720,7 @@ const Addproduct = () => {
             />
             <br />
         
-             {/* Call setProductPhoto onChange to update  produce photo Hook */}
+             {/* Call setProductPhoto onChange to update  product photo Hook */}
              <b>Browse/Upload Product Image</b>
             <input
               type="file"
@@ -1756,7 +1756,7 @@ Output.<br>
 
 ### Step 7a: Get Products
 
-In this step we will be getting all products posted on the API. The get products Backend API implementation can be accessed at https://github.com/modcomlearning/BackendAPI(Step7)<br>
+In this step we will be getting all products we uploaded on the API. The get products Backend API implementation can be accessed at https://github.com/modcomlearning/BackendAPI(Step7)<br>
 
 
 Theoritical understanding of Get Products.
@@ -1783,7 +1783,7 @@ export default Getproducts;
 Next, we need to fetch/get all products from our getproducts Backend API, once we get the product we will show each and every product in a Card View<br>
 
 
-Lets look at how our GET products API diplays the data.
+Lets look at how our GET products API displays the data.
 
 ![alt text](image-38.png)
 
@@ -1801,11 +1801,11 @@ import axios from "axios"; //For API Access
 ```
 These are React Hooks used to manage the lifecycle of your data:
 
-useState: Creates a "container" to hold your products. When the data inside this container changes (e.g., after the API responds), React automatically re-renders the page to show the new cards.
+<b>useState:</b> Creates a "container" to hold your products. When the data inside this container changes (e.g., after the API responds), React automatically re-renders the page to show the new cards.
 
-useEffect: This is a trigger. You use it to tell React: "As soon as this page loads, go fetch the products from the backend." Without this, your code wouldn't know when to start the data request.
+<b>useEffect:</b> This is a trigger. You use it to tell React: "As soon as this page loads, go fetch the products from the backend." Without this, your code wouldn't know when to start the data request.
 
-Initialize below Hooks
+<b>Initialize below Hooks</b>
 
 ```jsx
    // Initialize Hooks
@@ -1814,7 +1814,8 @@ Initialize below Hooks
     const [error, setError] = useState(""); //error message hook
 ```
 
-Specify the image location URL, this is where the image image files were saved in pythonanywhere.<br>. 
+Specify the image location URL, this is where the image image files were saved in alwaysdata.<br>. 
+
 ```jsx
    //Specify image location URL
     const img_url = "https://modcom2026.alwaysdata.net/static/images/"
@@ -1839,7 +1840,7 @@ First, Create an Arrow  Function named getproducts() and write below code <br>
     }//end function
 ```
 
-Call Above Functions inside useEffect()
+<b>Call Above Functions inside useEffect() </b>
 
 ```jsx
   useEffect(() => {   //use effects makes the Page not reload several times, reload only once
@@ -1881,7 +1882,7 @@ Inside use Effect, we Call getproducts() function to fetch all products.
 
 
 
-Now that we have the product loaded from API, Its time to place the products in individual Crad View.
+Now that we have the product loaded from API, Its time to place the products in individual Card View.
 
 
 Create a Card to demonstrate how a single product will display, Update the HTML code as follows<br>
@@ -1987,7 +1988,7 @@ In App.css add below css class to style the image <br>
 }
 ```
 
-Full Getproducts.js Code <br>
+<b>Full Getproducts.js Code</b> <br>
 
 ```jsx
 import { useState, useEffect } from "react"; // for state management
@@ -2381,7 +2382,7 @@ Users can now navigate from;<br>
 <br>
 
 ### Conclusion
-Throughout this Full Stack Development module, we successfully built a complete Full Stack application—<b>SokoGarden</b>. The frontend was developed using <b>JavaScript and React.js</b>, while the backend was powered by Python Flask Framework with an SQL Database. API testing was conducted using Insomnia (https://insomnia.rest/), and the API was hosted on <b>PythonAnywhere.</b>.
+Throughout this Full Stack Development module, we successfully built a complete Full Stack application—<b>SokoGarden</b>. The frontend was developed using <b>JavaScript and React.js</b>, while the backend was powered by Python Flask Framework with an SQL Database. API testing was conducted using Insomnia (https://insomnia.rest/), and the API was hosted on <b>Alwaysdata.</b>.
 
 <br>
 This project provided hands-on experience in integrating frontend and backend technologies, API development and testing, database management, and deployment. By working on <b>SokoGarden</b>, students have gained proficiency in building, testing, and deploying Full Stack applications—a crucial skill set for real-world software development.

@@ -68,7 +68,7 @@ const Addproduct = () => {
             {message}
             {error}
             <h3>Upload Products</h3>
-            {/* Call setProductName onChange to update  produce name Hook */}
+            {/* Call setProductName onChange to update  product name Hook */}
             <input
               type="text"
               placeholder="Enter Product Name"
@@ -78,7 +78,7 @@ const Addproduct = () => {
               required
             /> <br />
 
-            {/* Call setProductDescription onChange to update  produce description Hook */}
+            {/* Call setProductDescription onChange to update  product description Hook */}
            <textarea
               className="form-control"
               placeholder="Describe your Product"
@@ -88,7 +88,7 @@ const Addproduct = () => {
             ></textarea>
             <br />
       
-             {/* Call setProductCost onChange to update  produce cost Hook */}
+             {/* Call setProductCost onChange to update  product cost Hook */}
             <input
               type="number"
               placeholder="Enter Product Cost"
@@ -99,7 +99,7 @@ const Addproduct = () => {
             />
             <br />
         
-             {/* Call setProductPhoto onChange to update  produce photo Hook */}
+             {/* Call setProductPhoto onChange to update  product photo Hook */}
              <b>Browse/Upload Product Image</b>
             <input
               type="file"
