@@ -60,9 +60,6 @@ const Addproduct = () => {
     
     <div className="row justify-content-center mt-4">
 
-      <nav className="p-3">
-           <Link to='/' className="btn btn-dark">GET ALL PRODUCTS</Link>
-      </nav>
 
       <div className="col-md-6 card shadow p-4">
         <form onSubmit={submit}>

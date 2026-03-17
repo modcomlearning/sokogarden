@@ -17,12 +17,14 @@ function App() {
               <h1>SokoGarden - Buy & Sell Online</h1>
           
           </header>
+
+
           <nav className="m-4">
               <Link to='/' className="btn btn-dark mx-2">HOME</Link>
             <Link to='/addproduct' className="btn btn-dark mx-2">UPLOAD PRODUCTS</Link>
             <Link to='/signin' className="btn btn-dark mx-2">Sign In</Link>
             <Link to='/signup' className="btn btn-dark mx-2">Sign Up</Link>
-</nav>
+          </nav>
            <Routes>
             <Route path="/signup" element={<Signup />} />
             <Route path="/signin" element={<Signin />} />

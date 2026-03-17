@@ -1758,6 +1758,13 @@ Output.<br>
 
 In this step we will be getting all products posted on the API. The get products Backend API implementation can be accessed at https://github.com/modcomlearning/BackendAPI(Step7)<br>
 
+
+Theoritical understanding of Get Products.
+
+
+![alt text](image-37.png)
+
+
 In your React App Open Getproducts.js
 <br>
 
@@ -1894,7 +1901,7 @@ The loading message is cleared with setLoading("").
 
 <b>Triggering Fetch on Mount: - useEffect()</b>
 <br>
-The useEffect hook is used to run a function when the component loads. In this case, it runs the API call to fetch product details when the component first loads. useEffect runs after the component renders.  If you include variables in the array[], useEffect will run whenever those variables change. In our the code inside useEffect run only once when Page loads.
+The useEffect hook is used to run a function when the component loads. In this case, it runs the API call to fetch product details when the component first loads. useEffect runs after the component renders/display.  Without useEffect the function getproducts() will be called/accessed several times. NB: If you include variables in the array[], useEffect will run whenever those variables change. In our the code inside useEffect run only once when Page loads.
 <br>
 
 Inside use Effect, we Call getproducts() function to fetch all products.
