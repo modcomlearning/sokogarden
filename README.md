@@ -1622,7 +1622,7 @@ Inside your form tag add below code.
       .... 
 ```
 
-Full Addproduct.js Code.<br/>
+<b>Full Addproduct.js Code.</b><br/>
 
 ```jsx
 import { useState } from "react"; // for state management
@@ -1759,7 +1759,7 @@ Output.<br>
 In this step we will be getting all products we uploaded on the API. The get products Backend API implementation can be accessed at https://github.com/modcomlearning/BackendAPI(Step7)<br>
 
 
-Theoritical understanding of Get Products.
+<b>Theoretical understanding of Get Products.</b>
 
 
 ![alt text](image-37.png)
@@ -1791,7 +1791,7 @@ As mentioned earlier, we now want to get the records as shown above to our front
 
 Let Code.
 
-In <<b>Getproducts.jsx </b>
+In <b>Getproducts.jsx </b>
 
 Import the required modules 
 
