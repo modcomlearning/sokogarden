@@ -2077,8 +2077,6 @@ Open [http://localhost:3000/](http://localhost:3000/) to view it in your browser
 In this Step, we implement LIPA NA MPESA, this allows customers to pay for products using MPESA. We will be interacting with our Backend API created in https://github.com/modcomlearning/BackendAPI (Step 8) <br/> API Demo <br/>
 
 
-### Visual Explanation of MPESA Integration and How it Works (On Board)
-
 In Your React App, Right Click on Components Folder,  
 
 
