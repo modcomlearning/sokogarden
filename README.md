@@ -2076,7 +2076,12 @@ Open [http://localhost:3000/](http://localhost:3000/) to view it in your browser
 
 In this Step, we implement LIPA NA MPESA, this allows customers to pay for products using MPESA. We will be interacting with our Backend API created in https://github.com/modcomlearning/BackendAPI (Step 8) <br/> API Demo <br/>
 
+
+### Visual Explanation of MPESA Integration and How it Works (On Board)
+
 In Your React App, Right Click on Components Folder,  
+
+
 Create a Component named Makepayment.js.
 
 Inside Create the Component Arrow Function and Return JSX Code.
@@ -2114,8 +2119,25 @@ Open [http://localhost:3000/makepayment](http://localhost:3000/makepayment) to v
 <b>Implementing the LIPA NA MPESA Logic </b><br>
 To make our App have MPESA Integration, First we need to add some code in Getproducts.js
 
-<b>Open Getproducts.js </b>and locate the <b>'Purchase Now'</b> Button in JSX.
+
+In Getproducts.jsx, import useNavigate()
+
+useNavigate is a hook from React Router (a library used for navigation in React apps).
+
+This line creates a function called navigate that you can use to move between pages
+
+```jsx
+import { useNavigate } from "react-router-dom"; // For link to other component
+```
+
+then inside the component, add below code
+```jsx
+  const navigate = useNavigate()
+```
+
+<b>Then in the same Getproducts.js </b>locate the <b>'Purchase Now'</b> Button in JSX code.
 Currently our Button looks like below <br>
+
 ```jsx
  <button className="btn btn-dark mt-2 w-100">Purchase Now</button>
 ```
@@ -2318,7 +2340,7 @@ export default Makepayment;
 <br>
 <b>Summary</b> <br>
 In above Step 8; <br>
-1. We click 'Purchase Now' Button from Getproducts.js Component. <br>
+1. We click 'Buy Now' Button from Getproducts.js Component. <br>
 2. Parse the product details to Makepayment.js. <br>
 3. In Makepayment.js, the parsed product is received using useLocation() <br>
 4. The received product details are extracted and binded in JSX<br/>
